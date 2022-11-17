@@ -84,6 +84,16 @@ def logInSubmit():
             print("pass")
             return render_template('login.html')
 
+@app.route('/espjson', methods=['POST'])
+def espjson():
+    try:      
+        a = (request.json['a'])
+        b = (request.json['b'])
+        c = (request.json['c'])
+        return str(a+b+c)
+    except:
+        return "pass"
+
 @app.route('/validemail', methods=['POST','GET'])   #login
 def validemail():
     if (request.method == 'POST'):
